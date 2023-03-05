@@ -109,12 +109,12 @@ button {
     max-height: 100%;
 }
 
-.menu-position-name {
+.menu-item-name {
     font-weight: 700;
     font-size: 20px;
 }
 
-.menu-position-short-description {
+.menu-item-description {
     font-weight: 400;
     margin-top: 2px;
     font-size: 16px;
@@ -126,11 +126,11 @@ button {
     color: #6C6C6C;
 }
 
-.menu-list-position-container-small .menu-position-short-description {
+.menu-list-position-container-small .menu-item-description {
     -webkit-line-clamp: 4;
 }
 
-.position-price {
+.menu-item-price {
     font-weight: 800;
     margin-top: 2px;
     font-size: 24px;
@@ -163,11 +163,11 @@ button {
 }
 
 @media screen and (max-width: 600px) {
-    .menu-position-name {
+    .menu-item-name {
       font-size: 16px;
     }
 
-    .menu-position-short-description {
+    .menu-item-description {
         font-size: 14px;
     }
 

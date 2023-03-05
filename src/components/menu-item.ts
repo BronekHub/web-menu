@@ -22,9 +22,9 @@ export class MenuItem extends Component<HTMLDivElement, HTMLDivElement> {
     configure(): void {}
   
     renderContent(): void {
-      this.element.querySelector(".menu-position-name")!.textContent = this.item.name;
-      this.element.querySelector(".menu-position-short-description")!.textContent = this.item.description;
-      this.element.querySelector(".position-price")!.textContent = Currency.convertToCurrency(this.item.price);
+      this.element.querySelector(".menu-item-name")!.textContent = this.item.name;
+      this.element.querySelector(".menu-item-description")!.textContent = this.item.description;
+      this.element.querySelector(".menu-item-price")!.textContent = Currency.convertToCurrency(this.item.price);
   
       if (this.item.imagePath) {
         (this.element.querySelector(".position-image")! as HTMLImageElement).src = this.item.imagePath!;
