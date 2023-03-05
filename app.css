@@ -10,11 +10,7 @@ button {
     font-family: 'Open Sans', sans-serif;
 }
 
-.search-container {
-    position: relative;
-}
-
-.search-input {
+#search-input {
     width: 100%;
     border: 2px solid #5d5d5d;
     background-color: #F3F3F3;
@@ -31,7 +27,7 @@ button {
     font-weight: 400;
 }
   
-.search-container span {
+#search-input-root span {
     position: absolute;
     left: 10px;
     top: 50%;
@@ -95,6 +91,14 @@ button {
    height: 120px;
    object-fit: cover; 
    border-radius: 8px 8px 0 0px;
+}
+
+#menu-list-container {
+    margin-top: 16px;
+    background-color: #F3F3F3;
+    padding: 16px;
+    border-radius: 24px;
+    height: 100%;
 }
 
 .menu-list-position-container .position-image {

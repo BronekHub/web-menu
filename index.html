@@ -14,23 +14,25 @@
     <!-- Google icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-    <script src='src/app.js' defer></script>
+    <script src='dist/app.js' defer></script>
 </head>
 <body>
-    <div class="menu-container" style="max-width: 1000px; margin: auto;">
+    <div id="menu-container" style="max-width: 1000px; margin: auto;">
 
         <div class="header-container">
             <h1>Menu</h1>
         </div>
 
-        <div class="search-container">
-            <input class="search-input" type="text" placeholder="Search..." />
-            <span class="material-symbols-rounded">
-                search
-            </span>
-        </div>
+        <template id="search-input-template">
+            <div style="position: relative;">
+                <input id="search-input" class="search-input" type="text" placeholder="Search..." />
+                <span class="material-symbols-rounded">
+                    search
+                </span>
+            </div>
+        </template>
 
-        <div class="filter-container">
+        <!-- <div class="filter-container">
             <template id="filter-item">
                 <div class="filter-item">{{name}}</div>
             </template>
@@ -44,55 +46,45 @@
                 </div>
             </template>
 
-        </div>
+        </div> -->
 
-        <div class="menu-list-container" style="margin-top: 16px; background-color: #F3F3F3; padding: 16px;">
-            <div class="menu-list-position-container" style="max-height: 250px;">
-                <img class="position-image" src="./assets/food_images/scrambled_eggs.png" alt="foot image">
-                
-                <div style="width: 100%; margin: 16px 0 16px 16px; overflow: hidden;">
-                    <div style="display: flex; justify-content: space-between;">
-                        <div>
-                            <div class="menu-position-name">SCRAMBLED EGGS</div>
-                            <div class="menu-position-short-description">3 free range eggs scrambled, served with bread, butter and fesh veggies</div>
+        <div id="menu-list-container">
+
+            <template id="menu-position-template">
+                <div class="menu-list-position-container" style="max-height: 250px;">
+                    <img class="position-image" src="./assets/food_images/restaurant.svg" alt="foot image">
+                    
+                    <div style="width: 100%; margin: 16px 0 16px 16px; overflow: hidden;">
+                        <div style="display: flex; justify-content: space-between;">
+                            <div>
+                                <div class="menu-position-name">{{name}}</div>
+                                <div class="menu-position-short-description">3 free range eggs scrambled, served with bread, butter and fesh veggies</div>
+                            </div>
+                        </div>
+
+                        <div class="menu-position-allergens" style="margin-top: 16px; display: inline-flex; justify-content: space-between; width: 100%; flex-direction: row-reverse; overflow: auto; white-space: nowrap;">
+                            <div style="">
+                            </div>
+
+                        </div>
+                        <div style="display: flex; overflow: hidden; margin-top: 16px; justify-content: space-between;">
+
+                            <div class="position-price">
+                                12 PLN
+                            </div>
+                            <button class="btn btn-primary" style="min-width: 150px; margin-left: 16px;">  
+                                <span class="material-symbols-rounded" style="margin-right: 6px; font-size: 24px;">
+                                    add_circle  
+                                </span>
+                                <div>Add to order</div>
+                            </button>
                         </div>
                     
                     </div>
-
-                    <div style="margin-top: 16px; display: inline-flex; overflow: auto; justify-content: space-between; width: 100%;">
-                        <div style="overflow: auto; white-space: nowrap;">
-                            <img class="alergy-icon" src="assets/alergy_icons/gluten.png">
-                            <img class="alergy-icon" src="assets/alergy_icons/gluten.png">
-                            <img class="alergy-icon" src="assets/alergy_icons/gluten.png">
-                            <img class="alergy-icon" src="assets/alergy_icons/gluten.png">
-                            <img class="alergy-icon" src="assets/alergy_icons/gluten.png">
-                            <img class="alergy-icon" src="assets/alergy_icons/gluten.png">
-                            <img class="alergy-icon" src="assets/alergy_icons/gluten.png">
-                            <img class="alergy-icon" src="assets/alergy_icons/gluten.png">
-                            <img class="alergy-icon" src="assets/alergy_icons/gluten.png">
-                            <img class="alergy-icon" src="assets/alergy_icons/gluten.png">
-                            <img class="alergy-icon" src="assets/alergy_icons/gluten.png">
-                            <img class="alergy-icon" src="assets/alergy_icons/gluten.png">
-                        </div>
-
-                    </div>
-                    <div style="display: flex; overflow: hidden; margin-top: 16px; justify-content: space-between;">
-
-                        <div class="position-price">
-                            12 PLN
-                        </div>
-                        <button class="btn btn-primary" style="min-width: 150px; margin-left: 16px;">  
-                            <span class="material-symbols-rounded" style="margin-right: 6px; font-size: 24px;">
-                                add_circle  
-                            </span>
-                            <div>Add to order</div>
-                        </button>
-                    </div>
-                
                 </div>
-            </div>
+            </template>
 
-            <div class="menu-list-position-container-small">
+            <!-- <div class="menu-list-position-container-small">
                 <img class="position-image-top" src="./assets/food_images/scrambled_eggs.png" alt="foot image">
                 <div style="display: inline-flex;">
              
@@ -125,8 +117,8 @@
                     </div>
                 
                 </div>
-            </div>
-         </div>
+            </div> -->
+        </div>
     </div>
 </div>
 </body>
