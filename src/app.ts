@@ -56,7 +56,7 @@ class MenuListState {
 
   updateMenuList(menuItems: MenuPositionModel[]) {
     this.menuItems = menuItems;
-
+    
     const container = document.getElementById("menu-list-container")!;
     container.innerHTML = "";
 
@@ -72,7 +72,15 @@ enum MenuItemCategory {
   BEVERAGE,
 }
 
-class FoodAllergens {
+class FilterModel {
+    constructor(
+        public code: string,
+        public name: string,
+        public isSelected: boolean = false
+    ) {}
+}
+
+class FoodAllergenModel {
   constructor(
     public code: string,
     public iconPath: string,
@@ -93,18 +101,20 @@ class MenuPositionModel {
 }
 
 const foodAllergensTypes = [
-  new FoodAllergens(
+  new FoodAllergenModel(
     "vegetarian",
     "assets/alergy_icons/vegetarian.png",
     "Vegetarian"
   ),
-  new FoodAllergens("egg", "assets/alergy_icons/egg.png", "Egg"),
-  new FoodAllergens("gluten", "assets/alergy_icons/gluten.png", "Gluten"),
-  new FoodAllergens("fish", "assets/alergy_icons/fish.png", "Fish"),
-  new FoodAllergens("milk", "assets/alergy_icons/milk.png", "Milk"),
-  new FoodAllergens("gluten_free", "assets/alergy_icons/gluten_free.png", "Gluten free"),
-  new FoodAllergens("vegan", "assets/alergy_icons/vegan.png", "Vegan"),
+  new FoodAllergenModel("vegan", "assets/alergy_icons/vegan.png", "Vegan"),
+  new FoodAllergenModel("egg", "assets/alergy_icons/egg.png", "Egg"),
+  new FoodAllergenModel("fish", "assets/alergy_icons/fish.png", "Fish"),
+  new FoodAllergenModel("gluten", "assets/alergy_icons/gluten.png", "Gluten"),
+  new FoodAllergenModel("gluten_free", "assets/alergy_icons/gluten_free.png", "Gluten free"),
+  new FoodAllergenModel("milk", "assets/alergy_icons/milk.png", "Milk"),
 ];
+
+const filterItems = foodAllergensTypes.map((allergen) => { return new FilterModel(allergen.code, allergen.name, false); })
 
 const allMenuItems = [
   new MenuPositionModel(
@@ -139,7 +149,7 @@ const allMenuItems = [
     "TOFU SCRAMBLE",
     "Scrambled tofu, fresh veggies",
     19,
-    ["vegan", "gluten_free"],
+    ["vegan", "vegetarian", "gluten_free"],
     MenuItemCategory.BREAKFAST,
     "./assets/food_images/tofu_scramble.png"
   ),
@@ -185,7 +195,72 @@ class SearchInput extends Component<HTMLDivElement, HTMLFormElement> {
   }
 
   renderContent() {}
+
+  getCurrentValue(): string {
+    return this.searchInputElement.value;
+    }
 }
+
+class Filter extends Component<HTMLDivElement, HTMLDivElement> {
+    private filterChipsContainer: HTMLDivElement;
+    private onSelect: () => void;
+
+    constructor(onSelect: () => void) {
+        super("filter-template", "menu-container", true, "chips-filter-root");
+        this.filterChipsContainer = this.element.querySelector(".filter-container")! as HTMLDivElement;
+        this.onSelect = onSelect;
+        this.renderContent();
+    }
+
+    configure(): void {
+    }
+    
+    renderContent(): void {
+        filterItems.forEach((item) => {
+            new FilterChip("chips-filter-root", item, () => {
+                this.onSelect();
+            });
+        });
+    }
+} 
+
+
+class FilterChip extends Component<HTMLDivElement, HTMLDivElement> {
+    private item: FilterModel;
+    private itemName: HTMLDivElement;
+    private itemIconSelected: HTMLSpanElement;
+    private onSelect: () => void;
+
+    constructor(hostId: string, item: FilterModel, onSelect: () => void) {
+        super("filter-item-template", hostId, false, "filter-chip-root");
+        this.itemName = this.element.querySelector("#filter-item-name")! as HTMLDivElement;
+        this.itemIconSelected = this.element.querySelector("span")! as HTMLSpanElement;
+        this.onSelect = onSelect;
+        this.item = item;
+        this.renderContent();
+    }
+
+    configure(): void {
+    }
+
+    renderContent(): void {
+        this.setupComponents();
+
+        this.element.addEventListener("click", (e) => {
+            var index = filterItems.indexOf(this.item);
+            filterItems[index].isSelected = !filterItems[index].isSelected;
+            this.setupComponents();
+            this.onSelect();
+        });
+    }
+
+    private setupComponents() {
+        this.itemIconSelected.style.display = this.item.isSelected ? 'inline' : 'none';
+        this.element.className = this.item.isSelected ? 'filter-item selected' : 'filter-item';
+        this.itemName.textContent = this.item.name;
+    } 
+} 
+
 
 class MenuPosition extends Component<HTMLDivElement, HTMLDivElement> {
   private item: MenuPositionModel;
@@ -206,22 +281,15 @@ class MenuPosition extends Component<HTMLDivElement, HTMLDivElement> {
   configure(): void {}
 
   renderContent(): void {
-    this.element.querySelector(".menu-position-name")!.textContent =
-      this.item.name;
-    this.element.querySelector(
-      ".menu-position-short-description"
-    )!.textContent = this.item.description;
-    this.element.querySelector(".position-price")!.textContent =
-      convertToCurrency(this.item.price);
+    this.element.querySelector(".menu-position-name")!.textContent = this.item.name;
+    this.element.querySelector(".menu-position-short-description")!.textContent = this.item.description;
+    this.element.querySelector(".position-price")!.textContent = convertToCurrency(this.item.price);
 
     if (this.item.imagePath) {
-      (this.element.querySelector(".position-image")! as HTMLImageElement).src =
-        this.item.imagePath!;
+      (this.element.querySelector(".position-image")! as HTMLImageElement).src = this.item.imagePath!;
     }
 
-    const allergenList = this.element.querySelector(
-      ".menu-position-allergens"
-    ) as HTMLDivElement;
+    const allergenList = this.element.querySelector(".menu-position-allergens") as HTMLDivElement;
 
     this.item.allergenCodes.forEach((code) => {
       const allergen = foodAllergensTypes.find((el) => el.code === code);
@@ -238,19 +306,32 @@ function convertToCurrency(price: number): string {
   return price.toLocaleString("en-US", { style: "currency", currency: "PLN" });
 }
 
+function generateNewMenuList(searchValue: string): MenuPositionModel[] {
+    const selectedFilterCodes = filterItems.filter((item) => { return item.isSelected; }).map((item) => item.code);
+
+    const filteredMenuList = allMenuItems.filter((menuItem) => {
+      return selectedFilterCodes.length == 0 || menuItem.allergenCodes.some(code => selectedFilterCodes.some(filterCode => filterCode == code));
+    });
+  
+    const newList = filteredMenuList.filter((item) => {
+      return searchValue === '' || (item.name.toLowerCase().includes(searchValue.toLowerCase()) || item.description.toLowerCase().includes(searchValue.toLowerCase()));
+    });
+
+    return newList;
+}
+
 const menuListState = MenuListState.getInstance();
-const input = new SearchInput((value) => {
-  const newList = allMenuItems.filter((item) => {
-    return (
-      item.name.toLowerCase().includes(value.toLowerCase()) ||
-      item.description.toLowerCase().includes(value.toLowerCase())
-    );
-  });
-  menuListState.updateMenuList(newList);
+let filterView = new Filter(() => {
+    menuListState.updateMenuList(generateNewMenuList(input.getCurrentValue()));
 });
 
+const input = new SearchInput((value) => {
+  menuListState.updateMenuList(generateNewMenuList(value));
+});
+
+
 window.onresize = () => {
-  menuListState.updateMenuList(allMenuItems);
+  menuListState.updateMenuList(generateNewMenuList(input.getCurrentValue()));
 };
 
-menuListState.updateMenuList(allMenuItems);
+menuListState.updateMenuList(generateNewMenuList(input.getCurrentValue()));

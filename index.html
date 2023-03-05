@@ -17,11 +17,8 @@
     <script src='dist/app.js' defer></script>
 </head>
 <body>
-    <div id="menu-container" style="max-width: 1000px; margin: auto;">
 
-        <div class="header-container">
-            <h1>Menu</h1>
-        </div>
+    <div id="menu-container" style="max-width: 1000px; margin: auto;">
 
         <template id="search-input-template">
             <div style="position: relative;">
@@ -32,30 +29,26 @@
             </div>
         </template>
 
-        <!-- <div class="filter-container">
-            <template id="filter-item">
-                <div class="filter-item">{{name}}</div>
-            </template>
-
-            <template id="filter-item-selected">
-                <div class="filter-item selected" style="display: flex;">
-                    <span class="material-symbols-rounded" style="margin-right: 6px; font-size: 16px;">
-                        check
-                    </span>
-                    {{name}}
-                </div>
-            </template>
-
-        </div> -->
+        <template id="filter-template">
+            <div class="filter-container" style="margin-top: 8px; overflow: auto; white-space: nowrap; min-height: 44px; display: flex;">
+                <template id="filter-item-template">
+                    <div class="filter-item">  
+                        <span class="material-symbols-rounded" style="margin-right: 6px; font-size: 14px; width:14px; color: white;">
+                            check
+                        </span> 
+                        <div id="filter-item-name">{{name}}</div>
+                    </div>
+                </template>
+            </div>
+        </template>
 
         <div id="menu-list-container">
 
-           
         </div>
 
 
         <template id="menu-position-template">
-            <div class="menu-list-position-container" style="max-height: 250px;">
+            <div class="menu-list-position-container" style="max-height: 30s0px;">
                 <img class="position-image" src="./assets/food_images/restaurant.svg" alt="foot image">
                 
                 <div style="width: 100%; margin: 16px 0 16px 16px; overflow: hidden;">
@@ -84,6 +77,7 @@
                 </div>
             </div>
         </template>
+
         <template id="menu-list-position-small-template">
         <div class="menu-list-position-container-small">
             <img class="position-image" src="./assets/food_images/scrambled_eggs.png" alt="foot image">

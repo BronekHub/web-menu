@@ -35,7 +35,7 @@ button {
     color: #5d5d5d;
 }
 
-.filter-container {
+.filter-chip-root {
     margin-top: 16px;
     display: flex;
     flex-direction: row;
@@ -47,8 +47,11 @@ button {
     border: solid 1px #6C6C6C;
     border-radius: 8px;
     font-weight: 600;
+    margin-top: 8px;
     margin-right: 8px;
-    display: inline-block;
+    display: inline-flex;
+    height: fit-content;
+    width: auto;
 }
 
 .filter-item.selected {
