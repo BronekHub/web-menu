@@ -132,7 +132,7 @@ export const menuItems = [
     "Carrot & apple / Orange & Raspberry",
     9,
     [],
-    MenuItemCategory.BEVERAGE
+    MenuItemCategory.COCKTAILS
   ),
   new MenuItemModel(
     "cappucino",
@@ -140,7 +140,7 @@ export const menuItems = [
     "",
     11,
     ["milk", "tree_nuts"],
-    MenuItemCategory.BEVERAGE,
+    MenuItemCategory.COFFEES,
     "./assets/food_images/cappucino.png"
   ),
   new MenuItemModel(
@@ -149,7 +149,7 @@ export const menuItems = [
     "",
     9,
     ["milk", "tree_nuts"],
-    MenuItemCategory.BEVERAGE,
+    MenuItemCategory.COFFEES,
     "./assets/food_images/latte.png"
   ),
   new MenuItemModel(
@@ -158,7 +158,7 @@ export const menuItems = [
     "",
     10,
     ["milk", "tree_nuts"],
-    MenuItemCategory.BEVERAGE,
+    MenuItemCategory.COFFEES,
     "./assets/food_images/flat_white.png"
   ),
   new MenuItemModel(
@@ -167,7 +167,7 @@ export const menuItems = [
     "",
     12,
     ["milk", "tree_nuts"],
-    MenuItemCategory.BEVERAGE,
+    MenuItemCategory.COFFEES,
     "./assets/food_images/mocha.png"
   ),
   new MenuItemModel(
@@ -176,7 +176,7 @@ export const menuItems = [
     "Black tea / herbal tea",
     8,
     [],
-    MenuItemCategory.BEVERAGE,
+    MenuItemCategory.TEAS,
     "./assets/food_images/tea.png"
   ),
 ];

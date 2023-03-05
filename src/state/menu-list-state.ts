@@ -1,4 +1,4 @@
-import { MenuItem } from "../components/menu-item.js";
+import { MenuItem, MenuItemHeader } from "../components/menu-item.js";
 import { MenuItemModel } from "../models/menu-item.js";
 
 export class MenuListState {
@@ -21,9 +21,14 @@ export class MenuListState {
     
     const container = document.getElementById("menu-list-container")!;
     container.innerHTML = "";
+    
+    const categories = Array.from(new Set(menuItems.map(item => item.foodCategory)));
 
-    this.menuItems.forEach((item) => {
-      new MenuItem("menu-list-container", item);
+    categories.forEach(category => {
+      new MenuItemHeader("menu-list-container", category.toString());
+      this.menuItems.filter(item => item.foodCategory == category).forEach((item) => {
+        new MenuItem("menu-list-container", item);
+      });
     });
   }
 }

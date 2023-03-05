@@ -46,4 +46,21 @@ export class MenuItem extends Component<HTMLDivElement, HTMLDivElement> {
       });
     }
 }
+
+export class MenuItemHeader extends Component<HTMLDivElement, HTMLDivElement> {
+  private headerName: string;
+
+  constructor(hostId: string, headerName: string) {
+    super("menu-item-header-template", hostId, false, headerName);
+    this.headerName = headerName;
+
+    this.renderContent();
+  }
+
+  configure(): void {}
+
+  renderContent(): void {
+    this.element.textContent = this.headerName;
+  }
+}
   

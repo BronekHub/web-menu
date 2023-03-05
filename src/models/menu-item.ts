@@ -1,7 +1,9 @@
 export enum MenuItemCategory {
-    BREAKFAST,
-    SWEET_BREAKFAST,
-    BEVERAGE,
+    BREAKFAST = "Breakfast",
+    SWEET_BREAKFAST = "Sweet breakfast",
+    COFFEES = "Coffees",
+    TEAS = "Teas",
+    COCKTAILS = "Cocktails",
 }
 
 export class MenuItemModel {
