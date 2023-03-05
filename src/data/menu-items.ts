@@ -1,6 +1,6 @@
 import { MenuItemModel, MenuItemCategory } from "../models/menu-item.js";
 
-export const allMenuItems = [
+export const menuItems = [
     new MenuItemModel(
       "scrambled_eggs",
       "SCRAMBLED EGGS",
