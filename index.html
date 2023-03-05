@@ -50,75 +50,72 @@
 
         <div id="menu-list-container">
 
-            <template id="menu-position-template">
-                <div class="menu-list-position-container" style="max-height: 250px;">
-                    <img class="position-image" src="./assets/food_images/restaurant.svg" alt="foot image">
-                    
-                    <div style="width: 100%; margin: 16px 0 16px 16px; overflow: hidden;">
-                        <div style="display: flex; justify-content: space-between;">
-                            <div>
-                                <div class="menu-position-name">{{name}}</div>
-                                <div class="menu-position-short-description">3 free range eggs scrambled, served with bread, butter and fesh veggies</div>
-                            </div>
-                        </div>
+           
+        </div>
 
-                        <div class="menu-position-allergens" style="margin-top: 16px; display: inline-flex; justify-content: space-between; width: 100%; flex-direction: row-reverse; overflow: auto; white-space: nowrap;">
-                            <div style="">
-                            </div>
 
-                        </div>
-                        <div style="display: flex; overflow: hidden; margin-top: 16px; justify-content: space-between;">
-
-                            <div class="position-price">
-                                12 PLN
-                            </div>
-                            <button class="btn btn-primary" style="min-width: 150px; margin-left: 16px;">  
-                                <span class="material-symbols-rounded" style="margin-right: 6px; font-size: 24px;">
-                                    add_circle  
-                                </span>
-                                <div>Add to order</div>
-                            </button>
-                        </div>
-                    
-                    </div>
-                </div>
-            </template>
-
-            <!-- <div class="menu-list-position-container-small">
-                <img class="position-image-top" src="./assets/food_images/scrambled_eggs.png" alt="foot image">
-                <div style="display: inline-flex;">
-             
-                <div style="width: 100%; margin: 16px; overflow: hidden;">
+        <template id="menu-position-template">
+            <div class="menu-list-position-container" style="max-height: 250px;">
+                <img class="position-image" src="./assets/food_images/restaurant.svg" alt="foot image">
+                
+                <div style="width: 100%; margin: 16px 0 16px 16px; overflow: hidden;">
                     <div style="display: flex; justify-content: space-between;">
                         <div>
-                            <div class="menu-position-name">SCRAMBLED EGGS</div>
+                            <div class="menu-position-name">{{name}}</div>
                             <div class="menu-position-short-description">3 free range eggs scrambled, served with bread, butter and fesh veggies</div>
                         </div>
-                    
                     </div>
 
-                    <div style="margin-top: 8px; display: inline-flex; overflow: auto; justify-content: space-between; width: 100%;">
-                        <div style="overflow: auto; white-space: nowrap;">
-                            <img class="alergy-icon small" src="assets/alergy_icons/gluten.png">
-                        </div>
-
+                    <div class="menu-position-allergens" style="margin-top: 16px; display: inline-flex; width: 100%; overflow: auto; white-space: nowrap;">
                     </div>
-                    <div style="display: flex; overflow: hidden; margin-top: 8px; justify-content: space-between;">
+                    <div style="display: flex; overflow: hidden; margin-top: 16px; justify-content: space-between;">
 
-                        <div class="position-price" style="margin-top: auto; margin-bottom: auto;">
+                        <div class="position-price">
                             12 PLN
                         </div>
-                        <button class="btn btn-primary" style="margin-left: 16px;">  
-                            <span class="material-symbols-rounded" style="font-size: 24px;">
+                        <button class="btn btn-primary" style="min-width: 150px; margin-left: 16px;">  
+                            <span class="material-symbols-rounded" style="margin-right: 6px; font-size: 24px;">
                                 add_circle  
                             </span>
-                  
+                            <div>Add to order</div>
                         </button>
                     </div>
                 
                 </div>
-            </div> -->
+            </div>
+        </template>
+        <template id="menu-list-position-small-template">
+        <div class="menu-list-position-container-small">
+            <img class="position-image" src="./assets/food_images/scrambled_eggs.png" alt="foot image">
+            <div style="display: inline-flex;">
+         
+            <div style="width: 100%; margin: 16px; overflow: hidden;">
+                <div style="display: flex; justify-content: space-between;">
+                    <div>
+                        <div class="menu-position-name">SCRAMBLED EGGS</div>
+                        <div class="menu-position-short-description">3 free range eggs scrambled, served with bread, butter and fesh veggies</div>
+                    </div>
+                </div>
+
+                <div class="menu-position-allergens" style="margin-top: 16px; display: inline-flex; width: 100%; overflow: auto; white-space: nowrap;">
+                       
+                </div>
+                <div style="display: flex; overflow: hidden; margin-top: 8px; justify-content: space-between;">
+
+                    <div class="position-price" style="margin-top: auto; margin-bottom: auto;">
+                        12 PLN
+                    </div>
+                    <button class="btn btn-primary" style="margin-left: 16px;">  
+                        <span class="material-symbols-rounded" style="font-size: 24px;">
+                            add_circle  
+                        </span>
+                    </button>
+                </div>
+            
+            </div>
         </div>
+    </template>
+
     </div>
 </div>
 </body>

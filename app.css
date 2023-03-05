@@ -86,7 +86,7 @@ button {
     margin-top: 16px;
 }
 
-.position-image-top {
+.menu-list-position-container-small .position-image {
    width: 100%;
    height: 120px;
    object-fit: cover; 
@@ -120,8 +120,17 @@ button {
 .menu-position-short-description {
     font-weight: 400;
     margin-top: 2px;
-    font-size: 14px;
+    font-size: 16px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: #6C6C6C;
+}
+
+.menu-list-position-container-small .menu-position-short-description {
+    -webkit-line-clamp: 4;
 }
 
 .position-price {
@@ -156,17 +165,13 @@ button {
     height: 65px;
 }
 
-.alergy-icon.small {
-    height: 45px;
-}
-
 @media screen and (max-width: 600px) {
     .menu-position-name {
-      font-size: 14px;
+      font-size: 16px;
     }
 
     .menu-position-short-description {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .position-price {
@@ -175,5 +180,9 @@ button {
 
     .menu-list-position-container .position-image {
         width: 130px;
+    }
+
+    .alergy-icon {
+        height: 50px;
     }
 }
