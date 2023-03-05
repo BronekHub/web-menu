@@ -7,17 +7,17 @@ export class MenuItem extends Component<HTMLDivElement, HTMLDivElement> {
     private item: MenuItemModel;
     private imageElement: HTMLImageElement;
   
-    constructor(hostId: string, position: MenuItemModel) {
+    constructor(hostId: string, item: MenuItemModel) {
       const screenWidth = window.innerWidth;
   
       if (screenWidth >= 600) {
-        super("menu-item-template", hostId, false, position.id);
+        super("menu-item-template", hostId, false, item.id);
       } else {
-        super("menu-list-position-small-template", hostId, false, position.id);
+        super("menu-list-item-small-template", hostId, false, item.id);
       }
   
       this.imageElement = this.element.querySelector(".menu-item-image")! as HTMLImageElement
-      this.item = position;
+      this.item = item;
       this.renderContent();
     }
   
@@ -34,7 +34,7 @@ export class MenuItem extends Component<HTMLDivElement, HTMLDivElement> {
         this.imageElement.style.objectFit = "none";
       }
   
-      const allergenList = this.element.querySelector(".menu-position-allergens") as HTMLDivElement;
+      const allergenList = this.element.querySelector(".menu-item-allergens") as HTMLDivElement;
   
       this.item.allergenCodes.forEach((code) => {
         const allergen = foodAllergensTypes.find((el) => el.code === code);
