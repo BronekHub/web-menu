@@ -5,16 +5,18 @@ import * as Currency from "../util/currency.js";
 
 export class MenuItem extends Component<HTMLDivElement, HTMLDivElement> {
     private item: MenuItemModel;
+    private imageElement: HTMLImageElement;
   
     constructor(hostId: string, position: MenuItemModel) {
       const screenWidth = window.innerWidth;
   
       if (screenWidth >= 600) {
-        super("menu-position-template", hostId, false, position.id);
+        super("menu-item-template", hostId, false, position.id);
       } else {
         super("menu-list-position-small-template", hostId, false, position.id);
       }
   
+      this.imageElement = this.element.querySelector(".menu-item-image")! as HTMLImageElement
       this.item = position;
       this.renderContent();
     }
@@ -25,9 +27,11 @@ export class MenuItem extends Component<HTMLDivElement, HTMLDivElement> {
       this.element.querySelector(".menu-item-name")!.textContent = this.item.name;
       this.element.querySelector(".menu-item-description")!.textContent = this.item.description;
       this.element.querySelector(".menu-item-price")!.textContent = Currency.convertToCurrency(this.item.price);
-  
+
       if (this.item.imagePath) {
-        (this.element.querySelector(".position-image")! as HTMLImageElement).src = this.item.imagePath!;
+        this.imageElement.src = this.item.imagePath!;
+      } else {
+        this.imageElement.style.objectFit = "none";
       }
   
       const allergenList = this.element.querySelector(".menu-position-allergens") as HTMLDivElement;

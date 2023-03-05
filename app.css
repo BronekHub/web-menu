@@ -64,7 +64,7 @@ button {
     'opsz' 24
 }
 
-.menu-list-position-container {
+.menu-list-item-container {
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     padding: 0 16px 0 0;
@@ -73,7 +73,7 @@ button {
     margin-top: 16px;
 }
 
-.menu-list-position-container-small {
+.menu-list-item-container-small {
     display: flex;
     flex-direction: column;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
@@ -83,7 +83,7 @@ button {
     margin-top: 16px;
 }
 
-.menu-list-position-container-small .position-image {
+.menu-list-item-container-small .menu-item-image {
    width: 100%;
    height: 120px;
    object-fit: cover; 
@@ -98,7 +98,7 @@ button {
     height: 100%;
 }
 
-.menu-list-position-container .position-image {
+.menu-list-item-container .menu-item-image {
     width: 200px;
     position: relative;
     display: inline-block;
@@ -126,7 +126,7 @@ button {
     color: #6C6C6C;
 }
 
-.menu-list-position-container-small .menu-item-description {
+.menu-list-item-container-small .menu-item-description {
     -webkit-line-clamp: 4;
 }
 
@@ -171,11 +171,11 @@ button {
         font-size: 14px;
     }
 
-    .position-price {
+    .menu-item-price {
         font-size: 18px;
     }
 
-    .menu-list-position-container .position-image {
+    .menu-list-item-container .menu-item-image {
         width: 130px;
     }
 
