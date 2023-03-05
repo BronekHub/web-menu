@@ -35,23 +35,17 @@ button {
     color: #5d5d5d;
 }
 
-.filter-chip-root {
-    margin-top: 16px;
-    display: flex;
-    flex-direction: row;
-}
-
 .filter-item {
     font-size: 12px;
     padding: 4px 16px 4px 16px;
     border: solid 1px #6C6C6C;
     border-radius: 8px;
     font-weight: 600;
-    margin-top: 8px;
     margin-right: 8px;
     display: inline-flex;
     height: fit-content;
     width: auto;
+    cursor: pointer;
 }
 
 .filter-item.selected {
