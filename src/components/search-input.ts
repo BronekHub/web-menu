@@ -6,7 +6,7 @@ export class SearchInput extends Component<HTMLDivElement, HTMLFormElement> {
     private onUpdateValueListener: (value: string) => void;
   
     constructor(onUpdateValueListener: (value: string) => void) {
-      super("search-input-template", "menu-container", true, "search-input-root");
+      super("search-input-template", "app", true, "search-input-root");
       this.searchInputElement = this.element.querySelector(
         "#search-input"
       )! as HTMLInputElement;

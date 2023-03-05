@@ -8,7 +8,7 @@ export class Filter extends Component<HTMLDivElement, HTMLDivElement> {
     private onSelect: (seletedItem: FilterModel) => void;
 
     constructor(onSelect: () => void) {
-        super("filter-template", "menu-container", true, "chips-filter-root");
+        super("filter-template", "app", true, "chips-filter-root");
         this.onSelect = onSelect;
         this.renderContent();
     }
