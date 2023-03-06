@@ -8,7 +8,7 @@ export const menuItems = [
     34,
     ["fried", "gluten", "egg"],
     MenuItemCategory.BREAKFAST,
-    "./assets/food_images/bbq_club.png"
+    "./resources/food_images/bbq_club.png"
   ),
   new MenuItemModel(
     "fried_rice",
@@ -17,7 +17,7 @@ export const menuItems = [
     24,
     ["fried", "pork", "gluten", "egg"],
     MenuItemCategory.BREAKFAST,
-    "./assets/food_images/fried_eggs.png"
+    "./resources/food_images/fried_eggs.png"
   ),
   new MenuItemModel(
     "scrambled_eggs",
@@ -26,7 +26,7 @@ export const menuItems = [
     42,
     ["vegetarian", "egg", "gluten"],
     MenuItemCategory.BREAKFAST,
-    "./assets/food_images/scrambled_eggs.png"
+    "./resources/food_images/scrambled_eggs.png"
   ),
   new MenuItemModel(
     "omelette",
@@ -35,7 +35,7 @@ export const menuItems = [
     18,
     ["vegetarian", "egg", "gluten"],
     MenuItemCategory.BREAKFAST,
-    "./assets/food_images/omelette.png"
+    "./resources/food_images/omelette.png"
   ),
   new MenuItemModel(
     "smoked_salmon",
@@ -44,7 +44,7 @@ export const menuItems = [
     22,
     ["fish", "gluten", "milk"],
     MenuItemCategory.BREAKFAST,
-    "./assets/food_images/smoked_salmon.png"
+    "./resources/food_images/smoked_salmon.png"
   ),
   new MenuItemModel(
     "bagels",
@@ -53,7 +53,7 @@ export const menuItems = [
     20,
     ["vegetarian", "gluten", "fish"],
     MenuItemCategory.BREAKFAST,
-    "./assets/food_images/bagels.png"
+    "./resources/food_images/bagels.png"
   ),
   new MenuItemModel(
     "english_breakfast",
@@ -62,7 +62,7 @@ export const menuItems = [
     32,
     ["fried", "pork", "gluten", "egg"],
     MenuItemCategory.BREAKFAST,
-    "./assets/food_images/english_breakfast.png"
+    "./resources/food_images/english_breakfast.png"
   ),
   new MenuItemModel(
     "tofu_scramble",
@@ -71,7 +71,7 @@ export const menuItems = [
     19,
     ["vegan", "vegetarian", "gluten_free"],
     MenuItemCategory.BREAKFAST,
-    "./assets/food_images/tofu_scramble.png"
+    "./resources/food_images/tofu_scramble.png"
   ),
   new MenuItemModel(
     "french_toast_strawberry puree",
@@ -80,7 +80,7 @@ export const menuItems = [
     17,
     ["vegetarian", "gluten"],
     MenuItemCategory.SWEET_BREAKFAST,
-    "./assets/food_images/french_toast_strawberries.png"
+    "./resources/food_images/french_toast_strawberries.png"
   ),
   new MenuItemModel(
     "pancakes",
@@ -89,7 +89,7 @@ export const menuItems = [
     24,
     ["egg", "gluten_free"],
     MenuItemCategory.SWEET_BREAKFAST,
-    "./assets/food_images/pancakes.png"
+    "./resources/food_images/pancakes.png"
   ),
   new MenuItemModel(
     "american_pancakes",
@@ -98,7 +98,7 @@ export const menuItems = [
     24,
     ["egg", "gluten", "tree_nuts"],
     MenuItemCategory.SWEET_BREAKFAST,
-    "./assets/food_images/american_pancakes.png"
+    "./resources/food_images/american_pancakes.png"
   ),
   new MenuItemModel(
     "french_toast_apples",
@@ -107,7 +107,7 @@ export const menuItems = [
     17,
     ["vegetarian", "gluten"],
     MenuItemCategory.SWEET_BREAKFAST,
-    "./assets/food_images/french_toast_apples.png"
+    "./resources/food_images/french_toast_apples.png"
   ),
   new MenuItemModel(
     "granola",
@@ -116,7 +116,7 @@ export const menuItems = [
     17,
     ["vegetarian", "gluten", "tree_nuts", "milk"],
     MenuItemCategory.SWEET_BREAKFAST,
-    "./assets/food_images/granola.png"
+    "./resources/food_images/granola.png"
   ),
   new MenuItemModel(
     "pudding_chia",
@@ -141,7 +141,7 @@ export const menuItems = [
     11,
     ["milk", "tree_nuts"],
     MenuItemCategory.COFFEES,
-    "./assets/food_images/cappucino.png"
+    "./resources/food_images/cappucino.png"
   ),
   new MenuItemModel(
     "latte",
@@ -150,7 +150,7 @@ export const menuItems = [
     9,
     ["milk", "tree_nuts"],
     MenuItemCategory.COFFEES,
-    "./assets/food_images/latte.png"
+    "./resources/food_images/latte.png"
   ),
   new MenuItemModel(
     "flat_white",
@@ -159,7 +159,7 @@ export const menuItems = [
     10,
     ["milk", "tree_nuts"],
     MenuItemCategory.COFFEES,
-    "./assets/food_images/flat_white.png"
+    "./resources/food_images/flat_white.png"
   ),
   new MenuItemModel(
     "mocha",
@@ -168,7 +168,7 @@ export const menuItems = [
     12,
     ["milk", "tree_nuts"],
     MenuItemCategory.COFFEES,
-    "./assets/food_images/mocha.png"
+    "./resources/food_images/mocha.png"
   ),
   new MenuItemModel(
     "tea",
@@ -177,6 +177,6 @@ export const menuItems = [
     8,
     [],
     MenuItemCategory.TEAS,
-    "./assets/food_images/tea.png"
+    "./resources/food_images/tea.png"
   ),
 ];
