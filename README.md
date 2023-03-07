@@ -5,10 +5,10 @@
 
 In order to run the project you have to install:
 1. Node JS (NPM tool is part of the Node JS package) - https://nodejs.org/en/,
-2. Optional - Typescript compiler (via npm) - https://www.typescriptlang.org/. - 
+2. Optional - Typescript compiler (via npm) - https://www.typescriptlang.org/.
+
+Typescript compiler is required when you need to generate JS files... This project contains generated JS files so there is no need to install the compiler.
 
 Then, open terminal in the project folder and type the commands:
 1. npm install 
 2. npm start
-
-![obraz](https://user-images.githubusercontent.com/54153545/223338264-03437cb3-a6fb-4e29-af82-be4f63918665.png)
